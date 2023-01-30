@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sworm : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed;
     [SerializeField] private bool move;
     private float max, min;
 
@@ -13,6 +13,8 @@ public class Sworm : MonoBehaviour
 
     private float swormPosX = 0f;
     BoxCollider2D boxCollider2D;
+
+    GameObject player;
 
     
 
@@ -24,6 +26,8 @@ public class Sworm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
+
         boxCollider2D= GetComponent<BoxCollider2D>();
         swormWidth = boxCollider2D.bounds.size.x / 2;
 
@@ -33,8 +37,7 @@ public class Sworm : MonoBehaviour
         swormPosX = Random.Range(-width + swormWidth, width - swormWidth);
 
         transform.position = new Vector3(swormPosX, transform.position.y, transform.position.z);
-
-        move= true;
+        speed = Random.Range(3f, 5f);
 
         if (transform.position.x >= 0)
         {
@@ -61,4 +64,6 @@ public class Sworm : MonoBehaviour
         }
         
     }
+
+    
 }
