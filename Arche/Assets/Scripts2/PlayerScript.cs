@@ -7,8 +7,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject[] rootParts;
     [SerializeField] private float speed;
 
-    private float rootTimer;
-    private float rootSpawnRate = 0.3f;
+    private float rootSpawnRate = 0.2f;
     private int rootId = 0;
 
     void Start()
@@ -16,7 +15,7 @@ public class PlayerScript : MonoBehaviour
         StartCoroutine(RootTimer());
     }
 
-    void Update()
+    void FixedUpdate()
     {
         PlayerMovement();
     }
@@ -24,7 +23,7 @@ public class PlayerScript : MonoBehaviour
     private void SetRoots()
     {
         rootParts[rootId].transform.position = transform.position;
-        rootParts[rootId].transform.rotation = transform.rotation;
+        rootParts[rootId].transform.rotation = Quaternion.Euler(new Vector3(0, 0, transform.rotation.z * 80));
 
         rootId++;
 
@@ -37,7 +36,7 @@ public class PlayerScript : MonoBehaviour
     private void PlayerMovement()
     {
         transform.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxis("Horizontal") * speed, -speed);
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Input.GetAxis("Horizontal") * 45));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Input.GetAxis("Horizontal") * 70));
     }
 
     IEnumerator RootTimer()
