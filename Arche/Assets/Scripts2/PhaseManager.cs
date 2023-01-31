@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class PhaseManager : MonoBehaviour
 {
+    [SerializeField] private InsectSpawner insectSpawner;
+
     private float phaseTwoTime = 100;
-    private float timer;
     private GameObject player;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
-    }
-
-    void Update()
-    {
-
     }
 
     IEnumerator PhaseTwoTimer()
@@ -26,6 +22,6 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseTwo()
     {
-
+        insectSpawner.SetInsectPosition();
     }
 }

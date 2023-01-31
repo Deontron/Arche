@@ -21,7 +21,7 @@ public class ShieldSpawner : MonoBehaviour
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
 
-        shieldPos = new Vector2(Random.Range(-screenWidth + 1f,screenWidth - 1f), Camera.main.transform.position.y - 50f);
+        shieldPos = new Vector2(Random.Range(-screenWidth + 1f, screenWidth - 1f), Camera.main.transform.position.y - 50f);
         GenerateShield();
 
     }

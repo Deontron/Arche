@@ -7,8 +7,9 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] Sprite phaseOneSprite;
-    [SerializeField] Sprite phaseTwoSprite;
-    [SerializeField] Sprite phaseThreeSprite;
+    [SerializeField] Sprite shieldSprite;
+    [SerializeField] Sprite gunnerSprite;
+    [SerializeField] Sprite gunnerShieldSprite;
 
     public float health = 510;
     public bool isShieldActive = false;
@@ -75,12 +76,12 @@ public class PlayerScript : MonoBehaviour
     public void ActivateShield()
     {
         isShieldActive = true;
-        GetComponent<SpriteRenderer>().sprite = phaseOneSprite;
+        GetComponent<SpriteRenderer>().sprite = shieldSprite;
     }
 
     public void DeactivateShield()
     {
         isShieldActive = false;
-        GetComponent<SpriteRenderer>().sprite = phaseTwoSprite;
+        GetComponent<SpriteRenderer>().sprite = phaseOneSprite;
     }
 }
