@@ -62,6 +62,8 @@ public class SwormSpawner : MonoBehaviour
 
         for (int i = 0; i < 10; i++)
         {
+            swormList[i].GetComponent<Sworm>().GetActive();
+
             GameObject temp;
             temp = swormList[i + 10];
             swormList[i + 10] = swormList[i];

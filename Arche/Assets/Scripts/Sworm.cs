@@ -6,6 +6,8 @@ public class Sworm : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private bool move;
+    [SerializeField] private float damage;
+
     private float max, min;
 
     private float screenWidth, screenHeight;
@@ -14,9 +16,7 @@ public class Sworm : MonoBehaviour
     private float swormPosX = 0f;
     BoxCollider2D boxCollider2D;
 
-    GameObject player;
-
-    
+    GameManager gm;
 
     public bool Move
     {
@@ -26,7 +26,7 @@ public class Sworm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        gm = GameObject.FindObjectOfType<GameManager>().GetComponent<GameManager>();
 
         boxCollider2D= GetComponent<BoxCollider2D>();
         swormWidth = boxCollider2D.bounds.size.x / 2;
@@ -71,17 +71,15 @@ public class Sworm : MonoBehaviour
             Vector2 pingPong = new(pingPongX, transform.position.y);
             transform.position = pingPong;
 
+            // Solucanin hareket yonune gore vucut yonu degistirilir.
             if (max - pingPongX <= 0.05f)
             {
-                Debug.Log(max);
-                Debug.Log("Yukari" + gameObject.name + ": " + min + " " + pingPongX);
+                
                 transform.rotation = Quaternion.Euler(0, 0, 0);
 
             }
-
             if (pingPongX - 0.05f <= min)
             {
-                Debug.Log("Asagi" + gameObject.name + ": " + max + " " + pingPongX);
                 transform.rotation = Quaternion.Euler(0, transform.rotation.y + 180, 0);
             }
             
@@ -89,5 +87,20 @@ public class Sworm : MonoBehaviour
         
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            gm.GetDamage(damage);
+            gameObject.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// Sworm objesini aktif hale getirir.
+    /// </summary>
+    public void GetActive()
+    {
+        gameObject.SetActive(true);
+    }
 }
