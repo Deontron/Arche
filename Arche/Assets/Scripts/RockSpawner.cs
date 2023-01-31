@@ -39,7 +39,6 @@ public class RockSpawner : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            Debug.Log(rockPos.x);
             GameObject prefab = Instantiate(rockPrefab, rockPos, Quaternion.identity);
             rockList.Add(prefab);
 

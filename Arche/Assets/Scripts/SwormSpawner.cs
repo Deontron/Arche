@@ -49,7 +49,6 @@ public class SwormSpawner : MonoBehaviour
     {
         for(int i = 0; i < 20; i++)
         {
-            Debug.Log(swormPos.x);
             GameObject prefab = Instantiate(swormPrefab, swormPos, Quaternion.identity);
             swormList.Add(prefab);
             prefab.GetComponent<Sworm>().Move = true;

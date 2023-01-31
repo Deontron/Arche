@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float health = 510;
 
     [SerializeField] private GameObject[] rootParts;
-    [SerializeField] private float speed;
+    public float speed;
 
     private float rootSpawnRate = 0.1f;
     private int rootId = 0;
