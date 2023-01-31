@@ -2,26 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class SwormSpawner : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
     private float distance;
 
-    [SerializeField] GameObject swormPrefab;
-
-    //GameObject player;
+    [SerializeField] GameObject coinPrefab;
 
     private float height, width;
 
-    List<GameObject> swormList = new();
-    
+    List<GameObject> coinList = new();
+
     //int id = 0;
 
     //[SerializeField] private float spawnSec;
     //[SerializeField] private bool randomSpawn;
 
-    Vector2 swormPos = new(0,-5f);
-    
+    Vector2 coinPos = new(0, -10);
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +26,8 @@ public class SwormSpawner : MonoBehaviour
         height = Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
 
-        //player = GameObject.Find("Player");
-        GenerateSworm();
+        GenerateCoin();
+
         //StartCoroutine(Timer());
         //StartCoroutine(Spawn(spawnSec));
     }
@@ -39,46 +36,49 @@ public class SwormSpawner : MonoBehaviour
     void Update()
     {
 
-        if (swormList[swormList.Count - 1].transform.position.y > Camera.main.transform.position.y - height + 1f)
+        if (coinList[coinList.Count - 1].transform.position.y > Camera.main.transform.position.y - height + 1f)
         {
-            PlaceSworm();
+            PlaceCoin();
         }
-        
-    }
-    void GenerateSworm()
-    {
-        for(int i = 0; i < 20; i++)
-        {
-            Debug.Log(swormPos.x);
-            GameObject prefab = Instantiate(swormPrefab, swormPos, Quaternion.identity);
-            swormList.Add(prefab);
-            prefab.GetComponent<Sworm>().Move = true;
-            
-            NextSwormPos();
-        }
-    }
 
-    void PlaceSworm()
+    }
+    void GenerateCoin()
     {
-
         for (int i = 0; i < 10; i++)
         {
-            GameObject temp;
-            temp = swormList[i + 10];
-            swormList[i + 10] = swormList[i];
-            swormList[i] = temp;
-            swormList[i + 10].transform.position = swormPos;
-            
+            Debug.Log(coinPos.x);
+            GameObject prefab = Instantiate(coinPrefab, coinPos, Quaternion.identity);
+            coinList.Add(prefab);
 
-            NextSwormPos();
+            NextCoinPos();
         }
     }
 
-    void NextSwormPos()
+    void PlaceCoin()
     {
-        distance = Random.Range(5, 10);
-        swormPos.y -= distance;
 
+        for (int i = 0; i < 5; i++)
+        {
+
+            coinList[i].GetComponent<Coin>().ActiveCoin();
+
+            GameObject temp;
+            temp = coinList[i + 5];
+            coinList[i + 5] = coinList[i];
+            coinList[i] = temp;
+            coinList[i + 5].transform.position = coinPos;
+
+
+            NextCoinPos();
+        }
+    }
+
+    void NextCoinPos()
+    {
+        distance = Random.Range(7, 20);
+        coinPos.y -= distance;
+        float posX = Random.Range(-width + 1, width);
+        coinPos.x = posX;
         //RandomPosition();
 
     }

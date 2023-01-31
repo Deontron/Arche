@@ -8,7 +8,7 @@ public class Sworm : MonoBehaviour
     [SerializeField] private bool move;
     private float max, min;
 
-    private float width, height;
+    private float screenWidth, screenHeight;
     private float swormWidth;
 
     private float swormPosX = 0f;
@@ -31,10 +31,10 @@ public class Sworm : MonoBehaviour
         boxCollider2D= GetComponent<BoxCollider2D>();
         swormWidth = boxCollider2D.bounds.size.x / 2;
 
-        height = Camera.main.orthographicSize;
-        width = height * Camera.main.aspect;
+        screenHeight = Camera.main.orthographicSize;
+        screenWidth = screenHeight * Camera.main.aspect;
         
-        swormPosX = Random.Range(-width + swormWidth, width - swormWidth);
+        swormPosX = Random.Range(-screenWidth + swormWidth, screenWidth - swormWidth);
 
         transform.position = new Vector3(swormPosX, transform.position.y, transform.position.z);
         speed = Random.Range(3f, 5f);
@@ -42,11 +42,11 @@ public class Sworm : MonoBehaviour
         if (transform.position.x >= 0)
         {
             min = swormWidth;
-            max = width - swormWidth;
+            max = screenWidth - swormWidth;
         }
         else
         {
-            min = -width + swormWidth;
+            min = -screenWidth + swormWidth;
             max = -swormWidth;
         }
 
