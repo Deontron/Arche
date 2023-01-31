@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public float health = 510;
+
     [SerializeField] private GameObject[] rootParts;
     [SerializeField] private float speed;
 
@@ -19,6 +21,8 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovement();
+
+        speed += Time.deltaTime / 25;
     }
 
     private void SetRoots()
