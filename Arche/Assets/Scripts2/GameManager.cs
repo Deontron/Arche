@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour
 
     private void DecreaseHealth()
     {
-        if (playerHealth >= 0)
+        if (playerHealth > 0)
         {
             playerHealth -= (Time.deltaTime * healthDecreaseRate);
             player.GetComponent<PlayerScript>().health = playerHealth;
         }
         else
         {
-
+            Death();
         }
     }
 
@@ -44,5 +44,10 @@ public class GameManager : MonoBehaviour
         {
 
         }
+    }
+
+    private void Death()
+    {
+
     }
 }
