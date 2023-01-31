@@ -55,10 +55,10 @@ public class ShieldSpawner : MonoBehaviour
             shieldList[i].GetComponent<Shield>().GetActive();
 
             GameObject temp;
-            temp = shieldList[i + 5];
-            shieldList[i + 5] = shieldList[i];
+            temp = shieldList[i + 3];
+            shieldList[i + 3] = shieldList[i];
             shieldList[i] = temp;
-            shieldList[i + 5].transform.position = shieldPos;
+            shieldList[i + 3].transform.position = shieldPos;
 
             NextShieldPos();
         }
@@ -66,7 +66,7 @@ public class ShieldSpawner : MonoBehaviour
 
     void NextShieldPos()
     {
-        distance = Random.Range(35f, 60f);
+        distance = Random.Range(50f, 80f);
         shieldPos.y -= distance;
         float posX = Random.Range(-screenWidth, screenWidth);
         shieldPos.x = posX;
