@@ -18,7 +18,7 @@ public class Bacteria : MonoBehaviour
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
 
-        speed = Random.Range(3f, 5f);
+        speed = Random.Range(2f, 4f);
 
         minusThing = Random.Range(0, 1f);
 
@@ -30,7 +30,7 @@ public class Bacteria : MonoBehaviour
         {
             speed *= +1;
         }
-        float bacteriaX = Random.Range(-2f, screenWidth - 2);
+        float bacteriaX = Random.Range(-2f, screenWidth / 2);
         transform.position = new Vector3(bacteriaX, transform.position.y, transform.position.z);
     }
 
