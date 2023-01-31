@@ -77,7 +77,7 @@ public class CoinSpawner : MonoBehaviour
     {
         distance = Random.Range(7, 20);
         coinPos.y -= distance;
-        float posX = Random.Range(-width + 1, width);
+        float posX = Random.Range(-width + 1, width - 1);
         coinPos.x = posX;
         //RandomPosition();
 
