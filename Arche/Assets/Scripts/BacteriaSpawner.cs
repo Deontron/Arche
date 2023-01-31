@@ -39,7 +39,7 @@ public class BacteriaSpawner : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            Debug.Log(bacteriaPos.x);
+            
             GameObject prefab = Instantiate(bacteriaPrefab, bacteriaPos, Quaternion.identity);
             bacteriaList.Add(prefab);
 
