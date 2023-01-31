@@ -8,11 +8,18 @@ public class Rock : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            collision.gameObject.GetComponent<PlayerScript>().enabled = false;
+            if (!collision.transform.GetComponent<PlayerScript>().isShieldActive)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                collision.gameObject.GetComponent<PlayerScript>().enabled = false;
 
-            StartCoroutine(BackToNormal(collision.gameObject));
+                StartCoroutine(BackToNormal(collision.gameObject));
+            }
+            else
+            {
+                collision.transform.GetComponent<PlayerScript>().DeactivateShield();
+            }
         }
     }
 
@@ -20,7 +27,7 @@ public class Rock : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         player.GetComponent<PlayerScript>().enabled = true;
-        
+
     }
 
     public void GetActive()
