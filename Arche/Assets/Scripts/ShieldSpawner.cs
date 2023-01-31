@@ -66,7 +66,7 @@ public class ShieldSpawner : MonoBehaviour
 
     void NextShieldPos()
     {
-        distance = Random.Range(35f, 60f);
+        distance = Random.Range(50f, 80f);
         shieldPos.y -= distance;
         float posX = Random.Range(-screenWidth, screenWidth);
         shieldPos.x = posX;
