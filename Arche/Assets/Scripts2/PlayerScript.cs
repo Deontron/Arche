@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovement();
+
+        speed += Time.deltaTime / 25;
     }
 
     private void SetRoots()
