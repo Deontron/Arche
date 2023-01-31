@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bacteria : MonoBehaviour
 {
-    float timeCounter = 0;
+    float angle = 0;
 
     [SerializeField] private float speed;
     [SerializeField] private float height;
@@ -37,12 +37,13 @@ public class Bacteria : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeCounter += Time.deltaTime * speed;
         
-        x = Mathf.Cos(timeCounter) * width;
-        y = Mathf.Sin(timeCounter) * height;
+        x = Mathf.Cos(angle) * width;
+        y = Mathf.Sin(angle) * height;
         
         transform.position += new Vector3(x, y, 0);
+
+        angle += Time.deltaTime * speed;
     }
 
 }
