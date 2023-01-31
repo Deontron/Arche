@@ -58,6 +58,7 @@ public class RockSpawner : MonoBehaviour
             rockList[i].GetComponent<Rock>().GetActive();
             boxCollider2D = rockList[i].GetComponent<BoxCollider2D>();
             rockWidth = boxCollider2D.bounds.size.x / 2;
+
             GameObject temp;
             temp = rockList[i + 5];
             rockList[i + 5] = rockList[i];
@@ -73,7 +74,7 @@ public class RockSpawner : MonoBehaviour
         distance = Random.Range(10, 20);
         rockPos.y -= distance;
         
-        float posX = Random.Range(-screenWidth + width, screenWidth - width);
+        float posX = Random.Range(-screenWidth + width + 1f, screenWidth - width - 1f);
         rockPos.x = posX;
 
     }
