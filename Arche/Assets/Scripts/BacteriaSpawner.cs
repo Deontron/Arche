@@ -8,7 +8,7 @@ public class BacteriaSpawner : MonoBehaviour
 
     [SerializeField] GameObject bacteriaPrefab;
 
-    private float height, width;
+    private float screenHeight, screenWidth;
 
     List<GameObject> bacteriaList = new();
 
@@ -18,8 +18,8 @@ public class BacteriaSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        height = Camera.main.orthographicSize;
-        width = height * Camera.main.aspect;
+        screenHeight = Camera.main.orthographicSize;
+        screenWidth = screenHeight * Camera.main.aspect;
 
         GenerateBacteria();
 
@@ -29,7 +29,7 @@ public class BacteriaSpawner : MonoBehaviour
     void Update()
     {
 
-        if (bacteriaList[bacteriaList.Count - 1].transform.position.y > Camera.main.transform.position.y - height + 1f)
+        if (bacteriaList[bacteriaList.Count - 1].transform.position.y > Camera.main.transform.position.y - screenHeight + 1f)
         {
             PlaceBacteria();
         }
