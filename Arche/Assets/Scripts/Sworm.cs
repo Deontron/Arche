@@ -36,6 +36,15 @@ public class Sworm : MonoBehaviour
         
         swormPosX = Random.Range(-screenWidth + swormWidth, screenWidth - swormWidth);
 
+        if(swormPosX < 0f)
+        {
+            transform.rotation = Quaternion.Euler(0,180,0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
         transform.position = new Vector3(swormPosX, transform.position.y, transform.position.z);
         speed = Random.Range(3f, 5f);
 
