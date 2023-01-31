@@ -8,7 +8,7 @@ public class InsectSpawner : MonoBehaviour
 
     private Transform[] insects = new Transform[10];
     private Transform player;
-    private Vector2 insectPos;
+    private Vector2 insectPos = Vector2.up * 10;
 
     private int insectCounter;
     private float distance;

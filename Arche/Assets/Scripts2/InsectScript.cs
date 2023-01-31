@@ -20,7 +20,7 @@ public class InsectScript : MonoBehaviour
 
     private void InscetMovement()
     {
-        Quaternion rotation = Quaternion.LookRotation(player.transform.position - transform.position, transform.TransformDirection(Vector3.up));
+        Quaternion rotation = Quaternion.LookRotation(player.transform.position - transform.position, transform.TransformDirection(-Vector3.forward));
         transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         GetComponent<Rigidbody2D>().MovePosition(new Vector2(Mathf.Lerp(transform.position.x, player.transform.position.x, speed), transform.position.y));
     }
