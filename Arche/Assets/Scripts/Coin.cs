@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
 
-        float coinX = Random.Range(-screenWidth, screenWidth);
+        float coinX = Random.Range(-screenWidth + 1, screenWidth - 1);
 
         transform.position = new Vector3(coinX, transform.position.y, transform.position.z);
     }

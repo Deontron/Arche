@@ -70,6 +70,21 @@ public class Sworm : MonoBehaviour
             float pingPongX = Mathf.PingPong(speed * Time.time, max - min) + min;
             Vector2 pingPong = new(pingPongX, transform.position.y);
             transform.position = pingPong;
+
+            if (max - pingPongX <= 0.05f)
+            {
+                Debug.Log(max);
+                Debug.Log("Yukari" + gameObject.name + ": " + min + " " + pingPongX);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            }
+
+            if (pingPongX - 0.05f <= min)
+            {
+                Debug.Log("Asagi" + gameObject.name + ": " + max + " " + pingPongX);
+                transform.rotation = Quaternion.Euler(0, transform.rotation.y + 180, 0);
+            }
+            
         }
         
     }
