@@ -21,7 +21,7 @@ public class ShieldSpawner : MonoBehaviour
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
 
-        shieldPos = new Vector2(Random.Range(-screenWidth + 1f,screenWidth - 1f), Camera.main.transform.position.y - 50f);
+        shieldPos = new Vector2(Random.Range(-screenWidth + 1f, screenWidth - 1f), Camera.main.transform.position.y - 50f);
         GenerateShield();
 
     }
@@ -55,10 +55,10 @@ public class ShieldSpawner : MonoBehaviour
             shieldList[i].GetComponent<Shield>().GetActive();
 
             GameObject temp;
-            temp = shieldList[i + 5];
-            shieldList[i + 5] = shieldList[i];
+            temp = shieldList[i + 3];
+            shieldList[i + 3] = shieldList[i];
             shieldList[i] = temp;
-            shieldList[i + 5].transform.position = shieldPos;
+            shieldList[i + 3].transform.position = shieldPos;
 
             NextShieldPos();
         }

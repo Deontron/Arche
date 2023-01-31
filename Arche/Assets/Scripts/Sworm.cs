@@ -28,17 +28,17 @@ public class Sworm : MonoBehaviour
     {
         gm = GameObject.FindObjectOfType<GameManager>().GetComponent<GameManager>();
 
-        boxCollider2D= GetComponent<BoxCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         swormWidth = boxCollider2D.bounds.size.x / 2;
 
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
-        
+
         swormPosX = Random.Range(-screenWidth + swormWidth, screenWidth - swormWidth);
 
-        if(swormPosX < 0f)
+        if (swormPosX < 0f)
         {
-            transform.rotation = Quaternion.Euler(0,180,0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
@@ -59,13 +59,13 @@ public class Sworm : MonoBehaviour
             max = -swormWidth;
         }
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(move)
+        if (move)
         {
             float pingPongX = Mathf.PingPong(speed * Time.time, max - min) + min;
             Vector2 pingPong = new(pingPongX, transform.position.y);
@@ -74,7 +74,7 @@ public class Sworm : MonoBehaviour
             // Solucanin hareket yonune gore vucut yonu degistirilir.
             if (max - pingPongX <= 0.05f)
             {
-                
+
                 transform.rotation = Quaternion.Euler(0, 0, 0);
 
             }
@@ -82,17 +82,24 @@ public class Sworm : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0, transform.rotation.y + 180, 0);
             }
-            
+
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            gm.GetDamage(damage);
-            gameObject.SetActive(false);
+            if (!collision.GetComponent<PlayerScript>().isShieldActive)
+            {
+                gm.GetDamage(damage);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                collision.GetComponent<PlayerScript>().DeactivateShield();
+            }
         }
     }
 
