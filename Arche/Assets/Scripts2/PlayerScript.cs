@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public float health = 510;
+
     [SerializeField] private GameObject[] rootParts;
     [SerializeField] private float speed;
 
