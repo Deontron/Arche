@@ -22,7 +22,7 @@ public class Bacteria : MonoBehaviour
 
         minusThing = Random.Range(0, 1f);
 
-        if(minusThing < 0.5f)
+        if (minusThing < 0.5f)
         {
             speed *= -1;
         }
@@ -31,16 +31,16 @@ public class Bacteria : MonoBehaviour
             speed *= +1;
         }
         float bacteriaX = Random.Range(-2f, screenWidth - 1);
-        transform.position= new Vector3(bacteriaX, transform.position.y, transform.position.z);
+        transform.position = new Vector3(bacteriaX, transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+
         x = Mathf.Cos(angle) * width;
         y = Mathf.Sin(angle) * height;
-        
+
         transform.position += new Vector3(x, y, 0);
 
         angle += Time.deltaTime * speed;
