@@ -30,7 +30,7 @@ public class Bacteria : MonoBehaviour
         {
             speed *= +1;
         }
-        float bacteriaX = Random.Range(-2f, screenWidth - 1);
+        float bacteriaX = Random.Range(-2f, screenWidth - 2);
         transform.position = new Vector3(bacteriaX, transform.position.y, transform.position.z);
     }
 
