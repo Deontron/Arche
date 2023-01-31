@@ -8,9 +8,12 @@ public class Rock : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PlayerScript>().enabled = false;
-
             StartCoroutine(BackToNormal(collision.gameObject));
+
+            
         }
     }
 
@@ -18,5 +21,12 @@ public class Rock : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         player.GetComponent<PlayerScript>().enabled = true;
+        
+    }
+
+    public void GetActive()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 }

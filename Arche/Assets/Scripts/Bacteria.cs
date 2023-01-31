@@ -54,6 +54,11 @@ public class Bacteria : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             gm.GetSick();
+            gameObject.SetActive(false);
         }
+    }
+    public void GetActive()
+    {
+        gameObject.SetActive(true);
     }
 }

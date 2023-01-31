@@ -12,7 +12,7 @@ public class RockSpawner : MonoBehaviour
 
     List<GameObject> rockList = new();
 
-    Vector2 rockPos = new(0, -15);
+    Vector2 rockPos = new(0, - 30);
 
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class RockSpawner : MonoBehaviour
     {
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
-
+        
         GenerateRock();
 
     }
@@ -29,7 +29,7 @@ public class RockSpawner : MonoBehaviour
     void Update()
     {
 
-        if (rockList[rockList.Count - 1].transform.position.y > Camera.main.transform.position.y - screenHeight + 1f)
+        if (rockList[rockList.Count - 1].transform.position.y > Camera.main.transform.position.y - screenHeight - 1f)
         {
             PlaceRock();
         }
@@ -51,6 +51,7 @@ public class RockSpawner : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
+            rockList[i].GetComponent<Rock>().GetActive();
 
             GameObject temp;
             temp = rockList[i + 5];
@@ -66,7 +67,7 @@ public class RockSpawner : MonoBehaviour
     {
         distance = Random.Range(10, 20);
         rockPos.y -= distance;
-        float posX = Random.Range(-screenWidth + 1, screenWidth - 1);
+        float posX = Random.Range(-screenWidth + 3, screenWidth - 3);
         rockPos.x = posX;
 
     }
