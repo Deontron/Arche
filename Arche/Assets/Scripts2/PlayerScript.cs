@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject[] rootParts;
     [SerializeField] private float speed;
 
-    private float rootSpawnRate = 0.2f;
+    private float rootSpawnRate = 0.1f;
     private int rootId = 0;
 
     void Start()
