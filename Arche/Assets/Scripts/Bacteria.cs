@@ -63,4 +63,8 @@ public class Bacteria : MonoBehaviour
             }
         }
     }
+    public void GetActive()
+    {
+        gameObject.SetActive(true);
+    }
 }

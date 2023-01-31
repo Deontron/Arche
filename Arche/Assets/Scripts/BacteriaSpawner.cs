@@ -51,6 +51,7 @@ public class BacteriaSpawner : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
+            bacteriaList[i].GetComponent<Bacteria>().GetActive();
 
             GameObject temp;
             temp = bacteriaList[i + 5];
