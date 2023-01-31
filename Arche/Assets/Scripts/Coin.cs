@@ -24,13 +24,18 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Player"))
         {
-            gameManager.IncreaseHealth(50);
+            if (!collision.GetComponent<PlayerScript>().isShieldActive)
+            {
+                gameManager.IncreaseHealth(50);
 
-            gameObject.SetActive(false);
-
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                collision.GetComponent<PlayerScript>().DeactivateShield();
+            }
         }
     }
 

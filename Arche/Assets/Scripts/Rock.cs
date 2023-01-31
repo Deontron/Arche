@@ -8,9 +8,16 @@ public class Rock : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerScript>().enabled = false;
+            if (!collision.transform.GetComponent<PlayerScript>().isShieldActive)
+            {
+                collision.gameObject.GetComponent<PlayerScript>().enabled = false;
 
-            StartCoroutine(BackToNormal(collision.gameObject));
+                StartCoroutine(BackToNormal(collision.gameObject));
+            }
+            else
+            {
+                collision.transform.GetComponent<PlayerScript>().DeactivateShield();
+            }
         }
     }
 

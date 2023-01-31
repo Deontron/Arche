@@ -1,11 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [SerializeField] Sprite phaseOneSprite;
+    [SerializeField] Sprite phaseTwoSprite;
+    [SerializeField] Sprite phaseThreeSprite;
+
     public float health = 510;
+    public bool isShieldActive = false;
 
     [SerializeField] private GameObject[] rootParts;
     public float speed;
@@ -64,5 +70,17 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(rootSpawnRate);
         StartCoroutine(RootTimer());
         SetRoots();
+    }
+
+    public void ActivateShield()
+    {
+        isShieldActive = true;
+        GetComponent<SpriteRenderer>().sprite = phaseOneSprite;
+    }
+
+    public void DeactivateShield()
+    {
+        isShieldActive = false;
+        GetComponent<SpriteRenderer>().sprite = phaseTwoSprite;
     }
 }

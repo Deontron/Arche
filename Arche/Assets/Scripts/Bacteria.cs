@@ -53,7 +53,14 @@ public class Bacteria : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            gm.GetSick();
+            if (!collision.GetComponent<PlayerScript>().isShieldActive)
+            {
+                gm.GetSick();
+            }
+            else
+            {
+                collision.GetComponent<PlayerScript>().DeactivateShield();
+            }
         }
     }
 }

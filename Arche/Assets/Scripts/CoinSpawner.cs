@@ -46,7 +46,7 @@ public class CoinSpawner : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            GameObject prefab = Instantiate(coinPrefab, coinPos, Quaternion.identity);
+            GameObject prefab = Instantiate(coinPrefab, coinPos, Quaternion.Euler(0, 0, 30));
             coinList.Add(prefab);
 
             NextCoinPos();

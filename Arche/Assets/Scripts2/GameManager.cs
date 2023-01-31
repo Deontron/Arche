@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private float maxPlayerHealth;
     private float healthDecreaseRate = 10f;
     private float sickDecreaseRate = 20f;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
