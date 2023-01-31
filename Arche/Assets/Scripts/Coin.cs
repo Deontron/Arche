@@ -5,9 +5,16 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private float screenWidth, screenHeight;
+
+    GameManager gameManager;
+
+    //float health = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
 
@@ -24,9 +31,13 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.CompareTag("Player"))
         {
+            
+
             gameObject.SetActive(false);
+            
         }
     }
 
