@@ -10,7 +10,6 @@ public class Coin : MonoBehaviour
 
     //float health = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -23,21 +22,15 @@ public class Coin : MonoBehaviour
         transform.position = new Vector3(coinX, transform.position.y, transform.position.z);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.CompareTag("Player"))
         {
-            
+            gameManager.IncreaseHealth(50);
 
             gameObject.SetActive(false);
-            
+
         }
     }
 

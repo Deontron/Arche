@@ -4,6 +4,8 @@ public class Bacteria : MonoBehaviour
 {
     float angle = 0;
 
+    GameManager gm;
+
     [SerializeField] private float speed;
     [SerializeField] private float height;
     [SerializeField] private float width;
@@ -15,6 +17,8 @@ public class Bacteria : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Camera.main.aspect;
 
@@ -34,7 +38,6 @@ public class Bacteria : MonoBehaviour
         transform.position = new Vector3(bacteriaX, transform.position.y, transform.position.z);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
 
@@ -46,4 +49,11 @@ public class Bacteria : MonoBehaviour
         angle += Time.deltaTime * speed;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            gm.GetSick();
+        }
+    }
 }

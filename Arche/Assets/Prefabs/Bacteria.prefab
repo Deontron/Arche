@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6425282573744426155}
   - component: {fileID: 3795246158955543278}
   - component: {fileID: 2302135313555708383}
+  - component: {fileID: 8193075910658670965}
   m_Layer: 0
   m_Name: Bacteria
   m_TagString: Untagged
@@ -100,3 +101,19 @@ MonoBehaviour:
   speed: 3
   height: 0.1
   width: 0.1
+--- !u!58 &8193075910658670965
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115724996518185236}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.19950354
