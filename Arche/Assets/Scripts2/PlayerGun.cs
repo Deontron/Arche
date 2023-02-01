@@ -22,6 +22,8 @@ public class PlayerGun : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        crossHair.position = mousePos;
+
         Quaternion rotation = Quaternion.LookRotation(mousePos - transform.position, transform.TransformDirection(Vector3.forward));
         transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
 
