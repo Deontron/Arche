@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
     {
         PlayerMovement();
 
-        speed += Time.deltaTime / 25;
+        speed += Time.deltaTime / 50;
     }
 
     private void SetRoots()

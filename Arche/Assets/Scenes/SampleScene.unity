@@ -20653,7 +20653,7 @@ MonoBehaviour:
   - {fileID: 336501077}
   - {fileID: 1136080843}
   - {fileID: 1620213959}
-  speed: 2
+  speed: 4
 --- !u!50 &1731045541
 Rigidbody2D:
   serializedVersion: 4
