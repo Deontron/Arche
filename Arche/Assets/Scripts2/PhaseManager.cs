@@ -26,8 +26,8 @@ public class PhaseManager : MonoBehaviour
     [SerializeField] private PlayerGun gun;
 
     private int phase = 1;
-    private float phaseTwoTime = 9;
-    private float phaseThreeTime = 18;
+    private float phaseTwoTime = 90;
+    private float phaseThreeTime = 180;
     private GameObject player;
 
     [SerializeField] private Slider slider;
