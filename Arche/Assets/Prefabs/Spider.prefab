@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1903492018609950799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -31.671564, y: -22.809774, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a16aed478e2ee6c45af0f602ed0f01ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,5 +101,3 @@ MonoBehaviour:
   spiderHealth: 100
   shootRate: 1
   bullet: {fileID: 1271144696507157953, guid: cc476d500d695744abd9699719328eeb, type: 3}
-  timer: 0
-  distance: 0

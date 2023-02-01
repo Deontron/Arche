@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpiderSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform insect;
+    [SerializeField] private Transform spider;
 
     private Transform[] spiders = new Transform[10];
     private Transform player;
@@ -19,7 +19,7 @@ public class SpiderSpawner : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         for (int i = 0; i < spiders.Length; i++)
         {
-            spiders[i] = Instantiate(insect, spiderPos, Quaternion.identity);
+            spiders[i] = Instantiate(spider, spiderPos, Quaternion.identity);
             spiders[i].SetParent(transform);
         }
     }

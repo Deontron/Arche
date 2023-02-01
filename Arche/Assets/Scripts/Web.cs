@@ -14,7 +14,7 @@ public class Web : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += bulletSpeed * Time.deltaTime * transform.right;
+        transform.position += bulletSpeed * Time.deltaTime * -transform.up;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -9,33 +9,25 @@ public class Spider : MonoBehaviour
     [SerializeField] private float shootRate;
 
     [SerializeField] GameObject bullet;
-    
-    private GameObject player;
 
-    private float screenHeight, screenWidth;
+    private Transform player;
+
     Quaternion rotation;
 
     float timer = 0;
-    float distance = 0;
+    float distance = 10;
 
     void Start()
     {
-        screenHeight = Camera.main.orthographicSize;
-        screenWidth = screenHeight * Camera.main.aspect;
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-        distance = player.transform.position.y - transform.position.y;
-        
-        if (Mathf.Abs(distance) < screenHeight)
-        {
-            //Shoot();
 
+        if (Vector2.Distance(transform.position, player.position) <= distance)
+        {
             FollowPlayer();
             if (timer % shootRate < 0.005f)
             {
@@ -47,7 +39,7 @@ public class Spider : MonoBehaviour
 
     void FollowPlayer()
     {
-        Quaternion rotation = Quaternion.LookRotation(player.transform.position - transform.position, transform.TransformDirection(Vector3.up));
+        Quaternion rotation = Quaternion.LookRotation(player.transform.position - transform.position, transform.TransformDirection(Vector3.forward));
         transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
 
     }
@@ -56,6 +48,4 @@ public class Spider : MonoBehaviour
     {
         Instantiate(bullet, transform.position, transform.rotation);
     }
-
-    
 }

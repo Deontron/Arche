@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject player;
     private float maxPlayerHealth;
-    private float healthDecreaseRate = 10f;
+    private float healthDecreaseRate = 7f;
     private float sickDecreaseRate = 20f;
 
     void Start()
