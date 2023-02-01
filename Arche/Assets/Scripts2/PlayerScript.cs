@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public Sprite defaultSprite;
     public Sprite shieldSprite;
     public float health = 510;
+    public float score = 0;
     public bool isShieldActive = false;
 
     [SerializeField] private GameObject[] rootParts;
@@ -19,6 +20,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        score = 0;
         StartCoroutine(RootTimer());
     }
 
