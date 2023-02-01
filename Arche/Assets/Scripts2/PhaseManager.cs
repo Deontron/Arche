@@ -5,8 +5,9 @@ using UnityEngine;
 public class PhaseManager : MonoBehaviour
 {
     [SerializeField] private InsectSpawner insectSpawner;
+    [SerializeField] private SpiderSpawner spiderSpawner;
 
-    private float phaseTwoTime = 100;
+    [SerializeField] private float phaseTwoTime = 100;
     private GameObject player;
     void Start()
     {
@@ -23,5 +24,6 @@ public class PhaseManager : MonoBehaviour
     private void StartPhaseTwo()
     {
         insectSpawner.SetInsectPosition();
+        spiderSpawner.SetSpiderPosition();
     }
 }

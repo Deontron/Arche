@@ -18,6 +18,8 @@ public class Spider : MonoBehaviour
     void Start()
     {
         screenHeight = Camera.main.orthographicSize;
+        screenWidth = screenHeight * Camera.main.aspect;
+
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(ShootRate());
     }
@@ -25,12 +27,12 @@ public class Spider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FollowPlayer();
-        if(transform.position.y >Camera.main.transform.position.y + screenHeight)
+        if (Mathf.Abs(player.transform.position.y - transform.position.y) < screenHeight)
         {
-            Destroy(gameObject);
-
+            FollowPlayer();
+            
         }
+        
     }
 
     void FollowPlayer()
@@ -40,17 +42,22 @@ public class Spider : MonoBehaviour
 
     }
 
-    void Shoot()
-    {
-        Instantiate(bullet, transform.position, transform.rotation);
-    }
+    //void Shoot()
+    //{
+    //    Instantiate(bullet, transform.position, transform.rotation);
+    //}
 
     IEnumerator ShootRate()
     {
+        //yield return new WaitForSeconds(shootRate);
         while (true)
         {
-            yield return new WaitForSeconds(shootRate);
-            Shoot();
+            if (Mathf.Abs(player.transform.position.y - transform.position.y) < screenHeight)
+            {
+                yield return new WaitForSeconds(shootRate);
+                //Shoot();
+            }
+            
         }
         
         
