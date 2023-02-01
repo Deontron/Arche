@@ -8,7 +8,7 @@ public class SpiderSpawner : MonoBehaviour
 
     private Transform[] spiders = new Transform[10];
     private Transform player;
-    private Vector2 spiderPos = Vector2.up * 10;
+    private Vector2 spiderPos = Vector2.up * 100;
 
     private int spiderCounter;
     private float distance;

@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
 {
     public Sprite defaultSprite;
     public Sprite shieldSprite;
-    public float health = 510;
+    public float health = 20f;
     public bool isShieldActive = false;
 
     [SerializeField] private GameObject[] rootParts;
@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        speed = 4;
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         StartCoroutine(RootTimer());
     }
@@ -28,7 +29,19 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovement();
-        speed += Time.deltaTime / 50;
+        print(Time.timeScale);
+        speed += Time.fixedDeltaTime / 50;
+    }
+    private void Update()
+    {
+        if (Math.Abs(transform.position.x) <= 8.18f)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, Input.GetAxis("Horizontal") * 70));
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+        }
     }
 
     private void SetRoots()
@@ -55,14 +68,7 @@ public class PlayerScript : MonoBehaviour
     private void PlayerMovement()
     {
         transform.GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxis("Horizontal") * speed, -speed);
-        if (Math.Abs(transform.position.x) <= 8.18f)
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, Input.GetAxis("Horizontal") * 70));
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(Vector3.zero);
-        }
+        
     }
 
     IEnumerator RootTimer()

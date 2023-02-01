@@ -10,20 +10,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float playerHealth;
     [SerializeField] private float playerScore;
 
+
     private GameObject player;
     private float maxPlayerHealth;
     private float healthDecreaseRate = 7f;
     private float sickDecreaseRate = 20f;
 
     public GameObject gameOverPanel;
+    public GameObject crossHair;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverPanelScoreText;
 
+    bool gameOver = true;
     
     void Start()
     {
-        Time.timeScale = 1f;
-
+        Time.timeScale = 1;
         playerScore = 0;
         gameOverPanel.SetActive(false);
 
@@ -36,10 +39,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        
         DecreaseHealth();
 
-        playerScore = -player.GetComponent<PlayerScript>().transform.position.y;
-        scoreText.text = "Score: " + playerScore.ToString();
+        
+        if (gameOver)
+        {
+            playerScore = -player.GetComponent<PlayerScript>().transform.position.y;
+        }
+        scoreText.text = "Score: " + playerScore.ToString("0");
     }
 
     private void DecreaseHealth()
@@ -89,7 +97,13 @@ public class GameManager : MonoBehaviour
 
     private void Death()
     {
-        //gameOverPanel.SetActive(true);
+        gameOver = false;
+
+        gameOverPanel.SetActive(true);
+        gameOverPanelScoreText.text = "Score: " + playerScore.ToString("0");
+        crossHair.SetActive(false);
+
+        Cursor.visible = true;
         Time.timeScale = 0;
 
     }
