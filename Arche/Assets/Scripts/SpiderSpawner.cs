@@ -1,53 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpiderSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform spiderPrefab;
-    
+    [SerializeField] private Transform insect;
+
     private Transform[] spiders = new Transform[10];
     private Transform player;
-    private Vector2 spiderPos;
+    private Vector2 spiderPos = Vector2.up * 10;
 
-    private int spiderCount;
+    private int spiderCounter;
     private float distance;
-
-    //private float screenHeight, screenWidth;
+    private float spiderX;
 
     void Start()
     {
-        //screenHeight = Camera.main.orthographicSize;
-        //screenWidth = screenHeight * Camera.main.aspect;
-
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
         for (int i = 0; i < spiders.Length; i++)
         {
-            spiders[i] = Instantiate(spiderPrefab, spiderPos, Quaternion.identity);
+            spiders[i] = Instantiate(insect, spiderPos, Quaternion.identity);
             spiders[i].SetParent(transform);
         }
-
     }
 
     public void SetSpiderPosition()
     {
-        distance = Random.Range(15, 25);
-        spiders[spiderCount].position = new Vector2(0, player.position.y - distance);
-        spiderCount++;
+        distance = Random.Range(20, 30);
+        spiderX = Random.Range(-7, 8);
+        spiders[spiderCounter].position = new Vector2(spiderX, player.position.y - distance);
+        spiders[spiderCounter].gameObject.SetActive(true);
+        spiderCounter++;
 
-        if (spiderCount >= spiders.Length)
+        if (spiderCounter >= spiders.Length)
         {
-            spiderCount = 0;
+            spiderCounter = 0;
         }
 
-        //StartCoroutine(Repeat());
+        StartCoroutine(RepeatSpider());
     }
 
-    //IEnumerator Repeat()
-    //{
-    //    yield return new WaitForSeconds(10f);
-    //    SetSpiderPosition();
-    //}
+    IEnumerator RepeatSpider()
+    {
+        yield return new WaitForSeconds(10);
+        SetSpiderPosition();
+    }
 }

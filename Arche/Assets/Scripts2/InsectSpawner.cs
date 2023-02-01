@@ -27,6 +27,7 @@ public class InsectSpawner : MonoBehaviour
     {
         distance = Random.Range(15, 25);
         insects[insectCounter].position = new Vector2(0, player.position.y - distance);
+        insects[insectCounter].gameObject.SetActive(true);
         insectCounter++;
 
         if (insectCounter >= insects.Length)

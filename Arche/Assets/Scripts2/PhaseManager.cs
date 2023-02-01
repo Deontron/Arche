@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PhaseManager : MonoBehaviour
 {
     [SerializeField] private InsectSpawner insectSpawner;
+    [SerializeField] private SpiderSpawner spiderSpawner;
     [SerializeField] private Sprite phaseTwoSprite;
     [SerializeField] private Sprite phaseThreeSprite;
     [SerializeField] private Image healthBar;
@@ -54,6 +55,7 @@ public class PhaseManager : MonoBehaviour
     private void StartPhaseThree()
     {
         print("phase 3");
+        spiderSpawner.SetSpiderPosition();
         healthBar.sprite = phaseThreeSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
         gun.GetComponent<PlayerGun>().enabled = true;

@@ -17,7 +17,7 @@ public class Spider : MonoBehaviour
 
     float timer = 0;
     float distance = 0;
-    // Start is called before the first frame update
+
     void Start()
     {
         screenHeight = Camera.main.orthographicSize;
@@ -27,7 +27,6 @@ public class Spider : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
@@ -43,10 +42,7 @@ public class Spider : MonoBehaviour
                 Debug.Log("Atessss!");
                 Shoot();
             }
-
         }
-        
-        
     }
 
     void FollowPlayer()
