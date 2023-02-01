@@ -61,6 +61,7 @@ public class Bacteria : MonoBehaviour
             {
                 collision.GetComponent<PlayerScript>().DeactivateShield();
             }
+            gameObject.SetActive(false);
         }
     }
     public void GetActive()

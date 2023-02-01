@@ -14,4 +14,13 @@ public class Bullet : MonoBehaviour
     {
         transform.position += -transform.up * bulletSpeed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            collision.gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+    }
 }

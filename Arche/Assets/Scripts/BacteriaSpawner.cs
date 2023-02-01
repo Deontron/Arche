@@ -66,7 +66,7 @@ public class BacteriaSpawner : MonoBehaviour
 
     void NextBacteriaPos()
     {
-        distance = Random.Range(10 * Multiplier, 20 * Multiplier);
+        distance = Random.Range(15 * Multiplier, 25 * Multiplier);
         bacteriaPos.y -= distance;
 
     }

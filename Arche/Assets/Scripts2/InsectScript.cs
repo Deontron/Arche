@@ -35,12 +35,13 @@ public class InsectScript : MonoBehaviour
             if (!collision.GetComponent<PlayerScript>().isShieldActive)
             {
                 gm.GetDamage(damage);
-                gameObject.SetActive(false);
             }
             else
             {
+                Debug.Log("Insect hasari soguruldu!");
                 collision.GetComponent<PlayerScript>().DeactivateShield();
             }
+            gameObject.SetActive(false);
         }
     }
 }

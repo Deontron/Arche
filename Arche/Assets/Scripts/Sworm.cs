@@ -94,14 +94,13 @@ public class Sworm : MonoBehaviour
             if (!collision.GetComponent<PlayerScript>().isShieldActive)
             {
                 gm.GetDamage(damage);
-                gameObject.SetActive(false);
             }
             else
             {
+                Debug.Log("Sworm hasari soguruldu!");
                 collision.GetComponent<PlayerScript>().DeactivateShield();
-                gm.GetDamage(0);
-                gameObject.SetActive(false);
             }
+            gameObject.SetActive(false);
         }
     }
 
