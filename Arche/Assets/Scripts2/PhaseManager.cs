@@ -19,8 +19,11 @@ public class PhaseManager : MonoBehaviour
     private float phaseTwoTime = 10;
     private float phaseThreeTime = 20;
     private GameObject player;
+
+    public GameObject shieldSpawner;
     void Start()
     {
+        
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
         StartCoroutine(PhaseThreeTimer());

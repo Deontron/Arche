@@ -10,10 +10,13 @@ public class Spider : MonoBehaviour
 
     [SerializeField] GameObject bullet;
     
-    GameObject player;
+    private GameObject player;
 
     private float screenHeight, screenWidth;
     Quaternion rotation;
+
+    float timer = 0;
+    float distance = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,17 +24,28 @@ public class Spider : MonoBehaviour
         screenWidth = screenHeight * Camera.main.aspect;
 
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(ShootRate());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(player.transform.position.y - transform.position.y) < screenHeight)
+        timer += Time.deltaTime;
+        distance = player.transform.position.y - transform.position.y;
+        
+        if (Mathf.Abs(distance) < screenHeight)
         {
+            //Shoot();
+
             FollowPlayer();
-            
+            if (timer % shootRate < 0.005f)
+            {
+                Debug.Log("Atessss!");
+                Shoot();
+            }
+
         }
+        
         
     }
 
@@ -42,24 +56,10 @@ public class Spider : MonoBehaviour
 
     }
 
-    //void Shoot()
-    //{
-    //    Instantiate(bullet, transform.position, transform.rotation);
-    //}
-
-    IEnumerator ShootRate()
+    void Shoot()
     {
-        //yield return new WaitForSeconds(shootRate);
-        while (true)
-        {
-            if (Mathf.Abs(player.transform.position.y - transform.position.y) < screenHeight)
-            {
-                yield return new WaitForSeconds(shootRate);
-                //Shoot();
-            }
-            
-        }
-        
-        
+        Instantiate(bullet, transform.position, transform.rotation);
     }
+
+    
 }

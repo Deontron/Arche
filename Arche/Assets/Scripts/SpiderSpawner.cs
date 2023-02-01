@@ -42,12 +42,12 @@ public class SpiderSpawner : MonoBehaviour
             spiderCount = 0;
         }
 
-        StartCoroutine(Repeat());
+        //StartCoroutine(Repeat());
     }
 
-    IEnumerator Repeat()
-    {
-        yield return new WaitForSeconds(10f);
-        SetSpiderPosition();
-    }
+    //IEnumerator Repeat()
+    //{
+    //    yield return new WaitForSeconds(10f);
+    //    SetSpiderPosition();
+    //}
 }

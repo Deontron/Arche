@@ -99,5 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   webDamage: 50
   spiderHealth: 100
-  shootRate: 2
+  shootRate: 1
   bullet: {fileID: 1271144696507157953, guid: cc476d500d695744abd9699719328eeb, type: 3}
+  timer: 0
+  distance: 0
