@@ -5,6 +5,7 @@ using UnityEngine;
 public class BacteriaSpawner : MonoBehaviour
 {
     private float distance;
+    [SerializeField] private float Multiplier = 1f;
 
     [SerializeField] GameObject bacteriaPrefab;
 
@@ -65,8 +66,12 @@ public class BacteriaSpawner : MonoBehaviour
 
     void NextBacteriaPos()
     {
-        distance = Random.Range(10, 20);
+        distance = Random.Range(10 * Multiplier, 20 * Multiplier);
         bacteriaPos.y -= distance;
 
+    }
+    public void SetDistanceForPhase(float multiplier)
+    {
+        Multiplier = multiplier;
     }
 }

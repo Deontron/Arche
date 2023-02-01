@@ -21,10 +21,15 @@ public class PhaseManager : MonoBehaviour
     private float phaseThreeTime = 20;
     private GameObject player;
 
-    public GameObject shieldSpawner;
+    [Header("Spawner")]
+    [SerializeField] private ShieldSpawner shieldSpawner;
+    [SerializeField] private SwormSpawner swormSpawner;
+    [SerializeField] private BacteriaSpawner bacteriaSpawner;
+    [SerializeField] private RockSpawner rockSpawner;
     void Start()
     {
-        
+        shieldSpawner.SetActive(false);
+
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
         StartCoroutine(PhaseThreeTimer());
@@ -40,6 +45,11 @@ public class PhaseManager : MonoBehaviour
     {
         print("phase 2");
         insectSpawner.SetInsectPosition();
+        swormSpawner.SetDistanceForPhase(2f);
+        bacteriaSpawner.SetDistanceForPhase(2f);
+        rockSpawner.SetDistanceForPhase(2f);
+        shieldSpawner.SetActive(true);
+
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
         player.GetComponent<PlayerScript>().defaultSprite = defaultSprite;
@@ -56,6 +66,10 @@ public class PhaseManager : MonoBehaviour
     {
         print("phase 3");
         spiderSpawner.SetSpiderPosition();
+        swormSpawner.SetDistanceForPhase(2.5f);
+        bacteriaSpawner.SetDistanceForPhase(2.5f);
+        rockSpawner.SetDistanceForPhase(2.5f);
+
         healthBar.sprite = phaseThreeSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
         gun.GetComponent<PlayerGun>().enabled = true;

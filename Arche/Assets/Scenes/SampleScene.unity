@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71682dca569c56940a81b3834abe994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplier: 1
   rockPrefab: {fileID: 5351586470215628022, guid: f1a53fbbf57e5db42960a1c8a3e052fb, type: 3}
 --- !u!4 &61982629
 Transform:
@@ -1624,7 +1625,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &373901971
 GameObject:
@@ -5297,7 +5298,7 @@ Transform:
   - {fileID: 1136080844}
   - {fileID: 1620213960}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -5382,7 +5383,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -5640,7 +5641,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590171424}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7834b8948ab18c049bb14f0a901cc873, type: 3}
   m_Name: 
@@ -5671,18 +5672,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602949387}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1786429770}
-  m_RootOrder: 0
+  m_Father: {fileID: 860624506}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65, y: 65}
-  m_SizeDelta: {x: 140.16, y: 130}
+  m_AnchoredPosition: {x: 105.7, y: 95.2}
+  m_SizeDelta: {x: 145.6, y: 136.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602949389
 MonoBehaviour:
@@ -5704,8 +5705,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 350ba96aa8dc95d4e877fe26b3353fd5, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 7082bdd1a1e92d94c9f13df6e52a8539, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
@@ -5788,7 +5789,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &616443672
 GameObject:
@@ -9870,16 +9871,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insectSpawner: {fileID: 635037504}
-  spiderSpawner: {fileID: 843528457}
+  spiderSpawner: {fileID: 0}
   phaseTwoSprite: {fileID: -1483650174, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   phaseThreeSprite: {fileID: 651133547, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   healthBar: {fileID: 1786429771}
-  gunnerSprite: {fileID: 21300000, guid: e8ea9340fa639cc4eb15b639a6a50130, type: 3}
-  gunnerShieldSprite: {fileID: 21300000, guid: 57d7d03f5f463f845967c9c067444aa3, type: 3}
-  shieldSprite: {fileID: 21300000, guid: 4b8c8d74ff5fc8e4ab507b0c731f27c6, type: 3}
-  defaultSprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
-  gun: {fileID: 590171427}
-  shieldSpawner: {fileID: 0}
+  gunnerSprite: {fileID: 0}
+  gunnerShieldSprite: {fileID: 0}
+  shieldSprite: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  gun: {fileID: 0}
+  shieldSpawner: {fileID: 864663433}
+  swormSpawner: {fileID: 1522304742}
+  bacteriaSpawner: {fileID: 2027774066}
+  rockSpawner: {fileID: 61982628}
 --- !u!4 &803076618
 Transform:
   m_ObjectHideFlags: 0
@@ -9893,52 +9897,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &843528456
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 843528458}
-  - component: {fileID: 843528457}
-  m_Layer: 0
-  m_Name: SpiderSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &843528457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843528456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b28a8f9a6368e46aa2a0ed54b4cb4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spider: {fileID: 1519291465369553876, guid: 5de2855f15af6024c8463dd713ac39b9, type: 3}
---- !u!4 &843528458
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843528456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3217793, y: -16.691103, z: 2.7710931}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843761091
 GameObject:
@@ -13413,8 +13372,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1786429770}
+  - {fileID: 602949388}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13437,7 +13397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &864663433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18039,7 +17999,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1165584215
 GameObject:
@@ -19243,7 +19203,7 @@ Transform:
   - {fileID: 852475412}
   - {fileID: 373901972}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1488499947
 GameObject:
@@ -19375,6 +19335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1e8fb489cf9d4fad9d20f07152314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplier: 1
   swormPrefab: {fileID: 395298965501740525, guid: 053ea743149da3c4fbffa4d4e747b205, type: 3}
 --- !u!4 &1522304743
 Transform:
@@ -20083,7 +20044,7 @@ Transform:
   m_Children:
   - {fileID: 590171425}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1731045540
 MonoBehaviour:
@@ -20097,7 +20058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a00648ff6c62144987ec668ef5c7556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
+  defaultSprite: {fileID: 0}
   shieldSprite: {fileID: 21300000, guid: 4b8c8d74ff5fc8e4ab507b0c731f27c6, type: 3}
   health: 510
   isShieldActive: 0
@@ -20162,7 +20123,7 @@ MonoBehaviour:
   - {fileID: 336501077}
   - {fileID: 1136080843}
   - {fileID: 1620213959}
-  speed: 4
+  speed: 2
 --- !u!50 &1731045541
 Rigidbody2D:
   serializedVersion: 4
@@ -20243,7 +20204,7 @@ Transform:
   m_Children:
   - {fileID: 658297315}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1784880459
 GameObject:
@@ -20327,7 +20288,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1785214025
 GameObject:
@@ -20460,15 +20421,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 602949388}
+  m_Children: []
   m_Father: {fileID: 860624506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 100, y: 100}
-  m_SizeDelta: {x: 130, y: 130}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786429771
 MonoBehaviour:
@@ -20490,7 +20450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1605490464, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
+  m_Sprite: {fileID: 651133547, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21155,6 +21115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95aa2178c1b4fff498b00e26495fae13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplier: 1
   bacteriaPrefab: {fileID: 2115724996518185236, guid: 404e51e57cb829e4bbb2dd0fb5c01423, type: 3}
 --- !u!4 &2027774067
 Transform:
