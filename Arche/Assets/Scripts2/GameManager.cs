@@ -18,8 +18,12 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
 
     public TextMeshProUGUI scoreText;
+
+    
     void Start()
     {
+        Time.timeScale = 1f;
+
         playerScore = 0;
         gameOverPanel.SetActive(false);
 
@@ -85,8 +89,8 @@ public class GameManager : MonoBehaviour
 
     private void Death()
     {
-        gameOverPanel.SetActive(true);
-        
+        //gameOverPanel.SetActive(true);
+        Time.timeScale = 0;
 
     }
 
