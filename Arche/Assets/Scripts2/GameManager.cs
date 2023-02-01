@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private float playerHealth;
+    private float playerScore;
 
     private GameObject player;
     private float maxPlayerHealth;
     private float healthDecreaseRate = 7f;
     private float sickDecreaseRate = 20f;
 
+    public GameObject gameOverPanel;
+
     void Start()
     {
+        playerScore = 0;
+        gameOverPanel.SetActive(false);
+
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerScript>().health;
         maxPlayerHealth = playerHealth;
@@ -70,6 +76,8 @@ public class GameManager : MonoBehaviour
 
     private void Death()
     {
+        gameOverPanel.SetActive(true);
+        
 
     }
 
@@ -78,5 +86,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         healthDecreaseRate = sickDecreaseRate / 2;
         player.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
