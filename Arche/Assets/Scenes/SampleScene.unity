@@ -1649,6 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d03ce39895c294989039d4a36420aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 0}
 --- !u!4 &337439453
 Transform:
   m_ObjectHideFlags: 0
@@ -9999,6 +10000,7 @@ MonoBehaviour:
   healthBarOneCanvas: {fileID: 602949387}
   healthBarTwoCanvas: {fileID: 1672805740}
   healthBarThreeCanvas: {fileID: 545775122}
+  magazine: {fileID: 0}
   gun: {fileID: 590171427}
   slider: {fileID: 877240376}
   shieldSpawner: {fileID: 864663433}
@@ -21043,6 +21045,7 @@ MonoBehaviour:
   defaultSprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
   shieldSprite: {fileID: 21300000, guid: 4b8c8d74ff5fc8e4ab507b0c731f27c6, type: 3}
   health: 510
+  score: 0
   isShieldActive: 0
   rootParts:
   - {fileID: 1944829391}
@@ -21806,7 +21809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -55, y: 30}
+  m_AnchoredPosition: {x: -65, y: 40}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872014961

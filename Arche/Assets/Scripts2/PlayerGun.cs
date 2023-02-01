@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerGun : MonoBehaviour
 {
     [SerializeField] private Transform bullet;
+    [SerializeField] private Transform crossHair;
     [SerializeField] private GameObject[] fullBullets;
 
     private Vector3 mousePos;
@@ -14,6 +15,7 @@ public class PlayerGun : MonoBehaviour
 
     void Start()
     {
+
     }
 
     void Update()
