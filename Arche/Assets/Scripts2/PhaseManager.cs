@@ -16,6 +16,10 @@ public class PhaseManager : MonoBehaviour
     [SerializeField] Sprite shieldSprite;
     [SerializeField] Sprite defaultSprite;
 
+    [SerializeField] GameObject healthBarOneCanvas;
+    [SerializeField] GameObject healthBarTwoCanvas;
+    [SerializeField] GameObject healthBarThreeCanvas;
+
     [SerializeField] private PlayerGun gun;
 
     private float phaseTwoTime = 10;
@@ -33,7 +37,7 @@ public class PhaseManager : MonoBehaviour
     {
         shieldSpawner.SetActive(false);
 
-        slider.maxValue = phaseTwoTime;
+        //slider.maxValue = phaseTwoTime;
 
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
@@ -42,8 +46,8 @@ public class PhaseManager : MonoBehaviour
 
     private void Update()
     {
-        slider.value += Time.deltaTime;
-         
+        //slider.value += Time.deltaTime;
+
     }
     IEnumerator PhaseTwoTimer()
     {
@@ -53,15 +57,17 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseTwo()
     {
-        print("phase 2");
+        healthBarOneCanvas.SetActive(false);
+        healthBarTwoCanvas.SetActive(true);
+
         insectSpawner.SetInsectPosition();
         swormSpawner.SetDistanceForPhase(2f);
         bacteriaSpawner.SetDistanceForPhase(2f);
         rockSpawner.SetDistanceForPhase(2f);
         shieldSpawner.SetActive(true);
 
-        slider.maxValue = phaseThreeTime;
-        slider.value = 0f;
+        //slider.maxValue = phaseThreeTime;
+        //slider.value = 0f;
 
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
@@ -77,7 +83,9 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseThree()
     {
-        print("phase 3");
+        healthBarTwoCanvas.SetActive(false);
+        healthBarThreeCanvas.SetActive(true);
+
         spiderSpawner.SetSpiderPosition();
         swormSpawner.SetDistanceForPhase(2.5f);
         bacteriaSpawner.SetDistanceForPhase(2.5f);

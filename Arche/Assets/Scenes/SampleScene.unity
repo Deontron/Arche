@@ -5717,7 +5717,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590171424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7834b8948ab18c049bb14f0a901cc873, type: 3}
   m_Name: 
@@ -9955,6 +9955,9 @@ MonoBehaviour:
   gunnerShieldSprite: {fileID: 21300000, guid: 57d7d03f5f463f845967c9c067444aa3, type: 3}
   shieldSprite: {fileID: 21300000, guid: 4b8c8d74ff5fc8e4ab507b0c731f27c6, type: 3}
   defaultSprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
+  healthBarOneCanvas: {fileID: 602949387}
+  healthBarTwoCanvas: {fileID: 1672805740}
+  healthBarThreeCanvas: {fileID: 545775122}
   gun: {fileID: 590171427}
   slider: {fileID: 0}
   shieldSpawner: {fileID: 864663433}
