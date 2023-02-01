@@ -21,6 +21,14 @@ public class Rock : MonoBehaviour
             {
                 collision.transform.GetComponent<PlayerScript>().DeactivateShield();
             }
+            if (collision.transform.CompareTag("Obstacle"))
+            {
+                collision.transform.position = new Vector3((Random.Range(0,1f) < 0.5f) ? -Random.Range(1f, 2f) : Random.Range(1f, 2f),collision.transform.position.y,collision.transform.position.z);
+            }
+            if (collision.transform.CompareTag("Collectable"))
+            {
+                collision.transform.position = new Vector3((Random.Range(0, 1f) < 0.5f) ? -Random.Range(1f, 2f) : Random.Range(1f, 2f), collision.transform.position.y, collision.transform.position.z);
+            }
         }
     }
 

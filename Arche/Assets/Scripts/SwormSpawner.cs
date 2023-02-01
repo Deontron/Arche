@@ -6,6 +6,7 @@ using UnityEngine;
 public class SwormSpawner : MonoBehaviour
 {
     private float distance;
+    [SerializeField] private float Multiplier = 1f;
 
     [SerializeField] GameObject swormPrefab;
 
@@ -47,7 +48,7 @@ public class SwormSpawner : MonoBehaviour
     }
     void GenerateSworm()
     {
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < 10; i++)
         {
             GameObject prefab = Instantiate(swormPrefab, swormPos, Quaternion.identity);
             swormList.Add(prefab);
@@ -60,15 +61,15 @@ public class SwormSpawner : MonoBehaviour
     void PlaceSworm()
     {
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
             swormList[i].GetComponent<Sworm>().GetActive();
 
             GameObject temp;
-            temp = swormList[i + 10];
-            swormList[i + 10] = swormList[i];
+            temp = swormList[i + 5];
+            swormList[i + 5] = swormList[i];
             swormList[i] = temp;
-            swormList[i + 10].transform.position = swormPos;
+            swormList[i + 5].transform.position = swormPos;
             
 
             NextSwormPos();
@@ -77,13 +78,17 @@ public class SwormSpawner : MonoBehaviour
 
     void NextSwormPos()
     {
-        distance = Random.Range(5, 10);
+        distance = Random.Range(5 * Multiplier, 10 * Multiplier);
         swormPos.y -= distance;
 
         //RandomPosition();
 
     }
 
+    public void SetDistanceForPhase(float multiplier)
+    {
+        Multiplier = multiplier;
+    }
     //IEnumerator Timer()
     //{
     //    yield return new WaitForSeconds(spawnSec);

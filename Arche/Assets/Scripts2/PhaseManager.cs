@@ -14,7 +14,11 @@ public class PhaseManager : MonoBehaviour
     private float phaseThreeTime = 20;
     private GameObject player;
 
-    public GameObject shieldSpawner;
+    [SerializeField] private GameObject shieldSpawner;
+    [SerializeField] private RockSpawner rockSpawner;
+    [SerializeField] private BacteriaSpawner bacteriaSpawner;
+    [SerializeField] private SwormSpawner swormSpawner;
+    public 
     void Start()
     {
         
@@ -32,6 +36,10 @@ public class PhaseManager : MonoBehaviour
     private void StartPhaseTwo()
     {
         shieldSpawner.SetActive(true);
+        rockSpawner.SetDistanceForPhase(2f);
+        bacteriaSpawner.SetDistanceForPhase(2f);
+        swormSpawner.SetDistanceForPhase(2f);
+
         insectSpawner.SetInsectPosition();
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
@@ -45,6 +53,10 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseThree()
     {
+        rockSpawner.SetDistanceForPhase(2.5f);
+        bacteriaSpawner.SetDistanceForPhase(2.5f);
+        swormSpawner.SetDistanceForPhase(2.5f);
+
         insectSpawner.SetInsectPosition();
         healthBar.sprite = phaseThreeSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;

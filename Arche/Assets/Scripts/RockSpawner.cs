@@ -5,6 +5,7 @@ using UnityEngine;
 public class RockSpawner : MonoBehaviour
 {
     private float distance;
+    [SerializeField] private float Multiplier = 1f;
 
     [SerializeField] GameObject rockPrefab;
 
@@ -71,11 +72,15 @@ public class RockSpawner : MonoBehaviour
 
     void NextRockPos(float width)
     {
-        distance = Random.Range(10, 20);
+        distance = Random.Range(10 * Multiplier, 20 * Multiplier);
         rockPos.y -= distance;
         
         float posX = Random.Range(-screenWidth + width + 1f, screenWidth - width - 1f);
         rockPos.x = posX;
 
+    }
+    public void SetDistanceForPhase(float multiplier)
+    {
+        Multiplier = multiplier;
     }
 }

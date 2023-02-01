@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1519291465369553876}
   - component: {fileID: 682631178437284856}
   - component: {fileID: -4352659807299568786}
+  - component: {fileID: -8744864434898583597}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,5 +102,24 @@ MonoBehaviour:
   spiderHealth: 100
   shootRate: 1
   bullet: {fileID: 1271144696507157953, guid: cc476d500d695744abd9699719328eeb, type: 3}
-  timer: 0
-  distance: 0
+--- !u!50 &-8744864434898583597
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903492018609950799}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

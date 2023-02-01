@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71682dca569c56940a81b3834abe994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplier: 1
   rockPrefab: {fileID: 5351586470215628022, guid: f1a53fbbf57e5db42960a1c8a3e052fb, type: 3}
 --- !u!4 &61982629
 Transform:
@@ -469,7 +470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &67946792
 GameObject:
@@ -9873,6 +9874,10 @@ MonoBehaviour:
   phaseTwoSprite: {fileID: -1483650174, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   phaseThreeSprite: {fileID: 651133547, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   healthBar: {fileID: 1786429771}
+  shieldSpawner: {fileID: 864663432}
+  rockSpawner: {fileID: 61982628}
+  bacteriaSpawner: {fileID: 2027774066}
+  swormSpawner: {fileID: 1522304742}
 --- !u!4 &803076618
 Transform:
   m_ObjectHideFlags: 0
@@ -13386,7 +13391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &864663433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19131,7 +19136,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1418006379
 MonoBehaviour:
@@ -19324,6 +19329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1e8fb489cf9d4fad9d20f07152314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplier: 1
   swormPrefab: {fileID: 395298965501740525, guid: 053ea743149da3c4fbffa4d4e747b205, type: 3}
 --- !u!4 &1522304743
 Transform:
@@ -21105,6 +21111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95aa2178c1b4fff498b00e26495fae13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplier: 1
   bacteriaPrefab: {fileID: 2115724996518185236, guid: 404e51e57cb829e4bbb2dd0fb5c01423, type: 3}
 --- !u!4 &2027774067
 Transform:
@@ -21119,7 +21126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2067616822
 GameObject:
