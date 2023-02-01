@@ -14,6 +14,14 @@ public class Web : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += -transform.right * bulletSpeed * Time.deltaTime;
+        transform.position += bulletSpeed * Time.deltaTime * transform.right;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Isabet etti");
+        }
     }
 }
