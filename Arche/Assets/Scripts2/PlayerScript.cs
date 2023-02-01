@@ -9,7 +9,6 @@ public class PlayerScript : MonoBehaviour
     public Sprite defaultSprite;
     public Sprite shieldSprite;
     public float health = 510;
-    public float score = 0;
     public bool isShieldActive = false;
 
     [SerializeField] private GameObject[] rootParts;
@@ -30,7 +29,6 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovement();
-        score = -transform.position.y;
         speed += Time.deltaTime / 50;
     }
 
@@ -87,5 +85,5 @@ public class PlayerScript : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
 
-
+    
 }

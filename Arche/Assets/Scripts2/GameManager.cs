@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+
 public class GameManager : MonoBehaviour
 {
-    private float playerHealth;
-    private float playerScore;
+    [SerializeField] private float playerHealth;
+    [SerializeField] private float playerScore;
 
     private GameObject player;
     private float maxPlayerHealth;
@@ -14,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public TextMeshProUGUI scoreText;
     void Start()
     {
         playerScore = 0;
@@ -22,11 +26,16 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerScript>().health;
         maxPlayerHealth = playerHealth;
+
+        scoreText.text = "Score: " + playerScore.ToString();
     }
 
     void Update()
     {
         DecreaseHealth();
+
+        playerScore = -player.GetComponent<PlayerScript>().transform.position.y;
+        scoreText.text = "Score: " + playerScore.ToString();
     }
 
     private void DecreaseHealth()
