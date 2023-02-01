@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class PhaseManager : MonoBehaviour
 {
     [SerializeField] private InsectSpawner insectSpawner;
+    [SerializeField] private SpiderSpawner spiderSpawner;
     [SerializeField] private Sprite phaseTwoSprite;
     [SerializeField] private Sprite phaseThreeSprite;
     [SerializeField] private Image healthBar;
+    [SerializeField] Sprite gunnerSprite;
+    [SerializeField] Sprite gunnerShieldSprite;
+    [SerializeField] Sprite shieldSprite;
+    [SerializeField] Sprite defaultSprite;
+
+    [SerializeField] private PlayerGun gun;
 
     private float phaseTwoTime = 10;
     private float phaseThreeTime = 20;
     private GameObject player;
 
-    [SerializeField] private GameObject shieldSpawner;
-    [SerializeField] private RockSpawner rockSpawner;
-    [SerializeField] private BacteriaSpawner bacteriaSpawner;
-    [SerializeField] private SwormSpawner swormSpawner;
-    public 
+    public GameObject shieldSpawner;
     void Start()
     {
         
@@ -35,14 +38,12 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseTwo()
     {
-        shieldSpawner.SetActive(true);
-        rockSpawner.SetDistanceForPhase(2f);
-        bacteriaSpawner.SetDistanceForPhase(2f);
-        swormSpawner.SetDistanceForPhase(2f);
-
+        print("phase 2");
         insectSpawner.SetInsectPosition();
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
+        player.GetComponent<PlayerScript>().defaultSprite = defaultSprite;
+        player.GetComponent<PlayerScript>().shieldSprite = shieldSprite;
     }
 
     IEnumerator PhaseThreeTimer()
@@ -53,12 +54,13 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseThree()
     {
-        rockSpawner.SetDistanceForPhase(2.5f);
-        bacteriaSpawner.SetDistanceForPhase(2.5f);
-        swormSpawner.SetDistanceForPhase(2.5f);
-
-        insectSpawner.SetInsectPosition();
+        print("phase 3");
+        spiderSpawner.SetSpiderPosition();
         healthBar.sprite = phaseThreeSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
+        gun.GetComponent<PlayerGun>().enabled = true;
+        player.GetComponent<SpriteRenderer>().sprite = gunnerSprite;
+        player.GetComponent<PlayerScript>().defaultSprite = gunnerSprite;
+        player.GetComponent<PlayerScript>().shieldSprite = gunnerShieldSprite;
     }
 }
