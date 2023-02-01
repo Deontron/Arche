@@ -13,8 +13,11 @@ public class PhaseManager : MonoBehaviour
     private float phaseTwoTime = 10;
     private float phaseThreeTime = 20;
     private GameObject player;
+
+    public GameObject shieldSpawner;
     void Start()
     {
+        
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
         StartCoroutine(PhaseThreeTimer());
@@ -28,6 +31,7 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseTwo()
     {
+        shieldSpawner.SetActive(true);
         insectSpawner.SetInsectPosition();
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
