@@ -26,16 +26,9 @@ public class Coin : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (!collision.GetComponent<PlayerScript>().isShieldActive)
-            {
-                gameManager.IncreaseHealth(50);
+            gameManager.IncreaseHealth(50);
 
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                collision.GetComponent<PlayerScript>().DeactivateShield();
-            }
+            gameObject.SetActive(false);
         }
     }
 
