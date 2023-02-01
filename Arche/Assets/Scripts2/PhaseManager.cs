@@ -9,6 +9,12 @@ public class PhaseManager : MonoBehaviour
     [SerializeField] private Sprite phaseTwoSprite;
     [SerializeField] private Sprite phaseThreeSprite;
     [SerializeField] private Image healthBar;
+    [SerializeField] Sprite gunnerSprite;
+    [SerializeField] Sprite gunnerShieldSprite;
+    [SerializeField] Sprite shieldSprite;
+    [SerializeField] Sprite defaultSprite;
+
+    [SerializeField] private PlayerGun gun;
 
     private float phaseTwoTime = 10;
     private float phaseThreeTime = 20;
@@ -28,9 +34,12 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseTwo()
     {
+        print("phase 2");
         insectSpawner.SetInsectPosition();
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
+        player.GetComponent<PlayerScript>().defaultSprite = defaultSprite;
+        player.GetComponent<PlayerScript>().shieldSprite = shieldSprite;
     }
 
     IEnumerator PhaseThreeTimer()
@@ -41,8 +50,12 @@ public class PhaseManager : MonoBehaviour
 
     private void StartPhaseThree()
     {
-        insectSpawner.SetInsectPosition();
+        print("phase 3");
         healthBar.sprite = phaseThreeSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
+        gun.GetComponent<PlayerGun>().enabled = true;
+        player.GetComponent<SpriteRenderer>().sprite = gunnerSprite;
+        player.GetComponent<PlayerScript>().defaultSprite = gunnerSprite;
+        player.GetComponent<PlayerScript>().shieldSprite = gunnerShieldSprite;
     }
 }

@@ -9873,6 +9873,11 @@ MonoBehaviour:
   phaseTwoSprite: {fileID: -1483650174, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   phaseThreeSprite: {fileID: 651133547, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   healthBar: {fileID: 1786429771}
+  gunnerSprite: {fileID: 21300000, guid: e8ea9340fa639cc4eb15b639a6a50130, type: 3}
+  gunnerShieldSprite: {fileID: 21300000, guid: 57d7d03f5f463f845967c9c067444aa3, type: 3}
+  shieldSprite: {fileID: 21300000, guid: 4b8c8d74ff5fc8e4ab507b0c731f27c6, type: 3}
+  defaultSprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
+  gun: {fileID: 590171427}
 --- !u!4 &803076618
 Transform:
   m_ObjectHideFlags: 0
@@ -20007,7 +20012,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: 57d7d03f5f463f845967c9c067444aa3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -20046,10 +20051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a00648ff6c62144987ec668ef5c7556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phaseOneSprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
+  defaultSprite: {fileID: 21300000, guid: c828fb97e5af2864f9e2d59d661df8a5, type: 3}
   shieldSprite: {fileID: 21300000, guid: 4b8c8d74ff5fc8e4ab507b0c731f27c6, type: 3}
-  gunnerSprite: {fileID: 21300000, guid: e8ea9340fa639cc4eb15b639a6a50130, type: 3}
-  gunnerShieldSprite: {fileID: 21300000, guid: 57d7d03f5f463f845967c9c067444aa3, type: 3}
   health: 510
   isShieldActive: 0
   rootParts:
