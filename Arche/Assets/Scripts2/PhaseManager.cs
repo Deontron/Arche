@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class PhaseManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class PhaseManager : MonoBehaviour
 
     [SerializeField] private PlayerGun gun;
 
+    private int phase = 1;
     private float phaseTwoTime = 10;
     private float phaseThreeTime = 20;
     private GameObject player;
@@ -37,8 +39,6 @@ public class PhaseManager : MonoBehaviour
     {
         shieldSpawner.SetActive(false);
 
-        //slider.maxValue = phaseTwoTime;
-
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
         StartCoroutine(PhaseThreeTimer());
@@ -46,9 +46,25 @@ public class PhaseManager : MonoBehaviour
 
     private void Update()
     {
-        //slider.value += Time.deltaTime;
-
+        PhaseSlider();
     }
+
+    private void PhaseSlider()
+    {
+        slider.value += Time.deltaTime;
+
+        if (slider.value >= phaseTwoTime)
+        {
+            if (phase == 2)
+            {
+                slider.gameObject.SetActive(false);
+            }
+
+            slider.value = 0;
+            phase = 2;
+        }
+    }
+
     IEnumerator PhaseTwoTimer()
     {
         yield return new WaitForSeconds(phaseTwoTime);
@@ -65,9 +81,6 @@ public class PhaseManager : MonoBehaviour
         bacteriaSpawner.SetDistanceForPhase(2f);
         rockSpawner.SetDistanceForPhase(2f);
         shieldSpawner.SetActive(true);
-
-        //slider.maxValue = phaseThreeTime;
-        //slider.value = 0f;
 
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
