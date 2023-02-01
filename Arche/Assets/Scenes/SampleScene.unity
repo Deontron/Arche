@@ -9947,7 +9947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insectSpawner: {fileID: 635037504}
-  spiderSpawner: {fileID: 0}
+  spiderSpawner: {fileID: 1293680356}
   phaseTwoSprite: {fileID: -1483650174, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   phaseThreeSprite: {fileID: 651133547, guid: 60e55629a6091414a9132b1ec43ee4d1, type: 3}
   healthBar: {fileID: 1786429771}

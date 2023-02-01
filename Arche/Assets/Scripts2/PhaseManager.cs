@@ -22,7 +22,7 @@ public class PhaseManager : MonoBehaviour
     private float phaseThreeTime = 20;
     private GameObject player;
 
-    [SerializeField] private Slider slider;
+    //[SerializeField] private Slider slider;
 
     [Header("Spawner")]
     [SerializeField] private ShieldSpawner shieldSpawner;
@@ -33,7 +33,7 @@ public class PhaseManager : MonoBehaviour
     {
         shieldSpawner.SetActive(false);
 
-        slider.maxValue = phaseTwoTime;
+        //slider.maxValue = phaseTwoTime;
 
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
@@ -42,7 +42,7 @@ public class PhaseManager : MonoBehaviour
 
     private void Update()
     {
-        slider.value += Time.deltaTime;
+        //slider.value += Time.deltaTime;
          
     }
     IEnumerator PhaseTwoTimer()
@@ -60,8 +60,8 @@ public class PhaseManager : MonoBehaviour
         rockSpawner.SetDistanceForPhase(2f);
         shieldSpawner.SetActive(true);
 
-        slider.maxValue = phaseThreeTime;
-        slider.value = 0f;
+        //slider.maxValue = phaseThreeTime;
+        //slider.value = 0f;
 
         healthBar.sprite = phaseTwoSprite;
         healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;

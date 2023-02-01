@@ -99,6 +99,8 @@ public class Sworm : MonoBehaviour
             else
             {
                 collision.GetComponent<PlayerScript>().DeactivateShield();
+                gm.GetDamage(0);
+                gameObject.SetActive(false);
             }
         }
     }
