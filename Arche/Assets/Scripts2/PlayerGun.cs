@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerGun : MonoBehaviour
 {
     [SerializeField] private Transform bullet;
+    [SerializeField] private GameObject[] fullBullets;
 
     private Vector3 mousePos;
     private int magazine = 3;
@@ -36,13 +37,15 @@ public class PlayerGun : MonoBehaviour
     private void Fire()
     {
         Instantiate(bullet, transform.position, transform.rotation);
+        fullBullets[bulletAmount - 1].SetActive(false);
         bulletAmount--;
     }
 
     IEnumerator BulletTimer()
     {
         isCounting = true;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(6);
+        fullBullets[bulletAmount].SetActive(true);
         bulletAmount++;
         isCounting = false;
     }

@@ -26,7 +26,6 @@ public class Web : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Isabet etti");
             collision.gameObject.GetComponent<PlayerScript>().speed *= 0.7f;
             collision.gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
             gameManager.GetDamage(bulletDamage);

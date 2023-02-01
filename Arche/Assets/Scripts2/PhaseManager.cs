@@ -21,11 +21,13 @@ public class PhaseManager : MonoBehaviour
     [SerializeField] GameObject healthBarTwoCanvas;
     [SerializeField] GameObject healthBarThreeCanvas;
 
+    [SerializeField] GameObject magazine;
+
     [SerializeField] private PlayerGun gun;
 
     private int phase = 1;
-    private float phaseTwoTime = 90;
-    private float phaseThreeTime = 180;
+    private float phaseTwoTime = 9;
+    private float phaseThreeTime = 18;
     private GameObject player;
 
     [SerializeField] private Slider slider;
@@ -98,6 +100,8 @@ public class PhaseManager : MonoBehaviour
     {
         healthBarTwoCanvas.SetActive(false);
         healthBarThreeCanvas.SetActive(true);
+
+        magazine.SetActive(true);
 
         spiderSpawner.SetSpiderPosition();
         swormSpawner.SetDistanceForPhase(2.5f);
