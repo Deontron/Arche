@@ -22,7 +22,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        score = 0;
         StartCoroutine(RootTimer());
     }
 

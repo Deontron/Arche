@@ -13,16 +13,13 @@ public class PlayerGun : MonoBehaviour
     private int bulletAmount = 3;
     private bool isCounting;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        crossHair.position = mousePos;
+
+        crossHair.position = Input.mousePosition;
+        Cursor.visible = false;
 
         Quaternion rotation = Quaternion.LookRotation(mousePos - transform.position, transform.TransformDirection(Vector3.forward));
         transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);

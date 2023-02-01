@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerScore = 0;
-        gameOverPanel.SetActive(false);
+        //gameOverPanel.SetActive(false);
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerScript>().health;
         maxPlayerHealth = playerHealth;
 
-        scoreText.text = "Score: " + playerScore.ToString();
+        //scoreText.text = "Score: " + playerScore.ToString();
     }
 
     void Update()
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         DecreaseHealth();
 
         playerScore = -player.GetComponent<PlayerScript>().transform.position.y;
-        scoreText.text = "Score: " + playerScore.ToString();
+        //scoreText.text = "Score: " + playerScore.ToString();
     }
 
     private void DecreaseHealth()
@@ -85,8 +85,8 @@ public class GameManager : MonoBehaviour
 
     private void Death()
     {
-        gameOverPanel.SetActive(true);
-        
+        //  gameOverPanel.SetActive(true);
+
 
     }
 
