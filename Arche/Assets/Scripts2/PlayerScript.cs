@@ -18,8 +18,11 @@ public class PlayerScript : MonoBehaviour
     private float rootSpawnRate = 0.1f;
     private int rootId = 0;
 
+    private GameManager gm;
+
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         score = 0;
         StartCoroutine(RootTimer());
     }
@@ -27,7 +30,7 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovement();
-
+        score = -transform.position.y;
         speed += Time.deltaTime / 50;
     }
 
@@ -83,4 +86,6 @@ public class PlayerScript : MonoBehaviour
         isShieldActive = false;
         GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
+
+
 }
