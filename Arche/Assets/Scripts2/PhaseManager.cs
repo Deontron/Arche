@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhaseManager : MonoBehaviour
 {
     [SerializeField] private InsectSpawner insectSpawner;
-    [SerializeField] private SpiderSpawner spiderSpawner;
+    [SerializeField] private Sprite phaseTwoSprite;
+    [SerializeField] private Sprite phaseThreeSprite;
+    [SerializeField] private Image healthBar;
 
-    [SerializeField] private float phaseTwoTime = 100;
+    private float phaseTwoTime = 10;
+    private float phaseThreeTime = 20;
     private GameObject player;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(PhaseTwoTimer());
+        StartCoroutine(PhaseThreeTimer());
     }
 
     IEnumerator PhaseTwoTimer()
@@ -24,6 +29,20 @@ public class PhaseManager : MonoBehaviour
     private void StartPhaseTwo()
     {
         insectSpawner.SetInsectPosition();
-        spiderSpawner.SetSpiderPosition();
+        healthBar.sprite = phaseTwoSprite;
+        healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
+    }
+
+    IEnumerator PhaseThreeTimer()
+    {
+        yield return new WaitForSeconds(phaseThreeTime);
+        StartPhaseThree();
+    }
+
+    private void StartPhaseThree()
+    {
+        insectSpawner.SetInsectPosition();
+        healthBar.sprite = phaseThreeSprite;
+        healthBar.gameObject.GetComponent<RectTransform>().localScale *= 1.3f;
     }
 }
