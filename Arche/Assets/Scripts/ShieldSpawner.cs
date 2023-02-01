@@ -72,4 +72,9 @@ public class ShieldSpawner : MonoBehaviour
         shieldPos.x = posX;
 
     }
+
+    public void SetActive(bool state)
+    {
+        gameObject.SetActive(state);
+    }
 }
