@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-
+            playerHealth = maxPlayerHealth;
         }
     }
 

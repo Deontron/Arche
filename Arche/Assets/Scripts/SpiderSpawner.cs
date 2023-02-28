@@ -26,7 +26,7 @@ public class SpiderSpawner : MonoBehaviour
 
     public void SetSpiderPosition()
     {
-        distance = Random.Range(20, 30);
+        distance = Random.Range(15, 22);
         spiderX = Random.Range(-7, 8);
         spiders[spiderCounter].position = new Vector2(spiderX, player.position.y - distance);
         spiders[spiderCounter].gameObject.SetActive(true);
@@ -42,7 +42,7 @@ public class SpiderSpawner : MonoBehaviour
 
     IEnumerator RepeatSpider()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(8);
         SetSpiderPosition();
     }
 }

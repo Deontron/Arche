@@ -25,7 +25,7 @@ public class InsectSpawner : MonoBehaviour
 
     public void SetInsectPosition()
     {
-        distance = Random.Range(15, 25);
+        distance = Random.Range(10, 18);
         insects[insectCounter].position = new Vector2(0, player.position.y - distance);
         insects[insectCounter].gameObject.SetActive(true);
         insectCounter++;
@@ -40,7 +40,7 @@ public class InsectSpawner : MonoBehaviour
 
     IEnumerator Repeat()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(7);
         SetInsectPosition();
     }
 }
